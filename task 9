@@ -1,0 +1,78 @@
+Q:1 What is the expected output of the following python code given below
+
+data = [10, 501, 22, 37, 100, 999, 87, 351]
+result = filter(lambda x: x > 4, data)
+print(list(result))
+
+[10, 501, 22, 37, 100, 999, 87, 351]
+
+Q:2 Write a python code using lambda function to check every element of a list is an integer or string?
+
+# Sample list containing a mix of integers and strings
+my_list = [10, 'Hello', 25, 'Python', 7]
+
+# Check if each element in the list is an integer or string using lambda function
+result = list(map(lambda x: isinstance(x, (int, str)), my_list))
+
+print(result)
+
+Q:3 Using the python lambda function create a fibonacci series from 1 to 50 elements?
+
+from functools import reduce
+
+# Using lambda function to generate Fibonacci series
+fibonacci_series = lambda n: reduce(lambda x, _: x + [x[-1] + x[-2]], range(n - 2), [0, 1])
+
+# Generate Fibonacci series with 50 elements
+result = fibonacci_series(50)
+
+print("Fibonacci Series (50 elements):", result)
+
+Q:4 Write a python function to validate the regular expression for the following:-
+a)Email address
+import re
+
+def validate_email(email):
+    pattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
+    return bool(re.match(pattern, email))
+
+# Example usage:
+email = "example@email.com"
+is_valid_email = validate_email(email)
+print(f"Is {email} a valid email address? {is_valid_email}")
+
+b)Mobile numbers of bangladesh
+import re
+
+def validate_bangladesh_mobile_number(number):
+    pattern = r'^(\+?88)?01[3-9]\d{8}$'
+    return bool(re.match(pattern, number))
+
+# Example usage:
+mobile_number = "+8801712345678"
+is_valid_mobile = validate_bangladesh_mobile_number(mobile_number)
+print(f"Is {mobile_number} a valid mobile number of Bangladesh? {is_valid_mobile}")
+
+c)Telephone numbers of USA
+import re
+
+def validate_usa_telephone_number(number):
+    pattern = r'^\+?1\s?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$'
+    return bool(re.match(pattern, number))
+
+# Example usage:
+telephone_number = "+1 (123) 456-7890"
+is_valid_telephone = validate_usa_telephone_number(telephone_number)
+print(f"Is {telephone_number} a valid telephone number of USA? {is_valid_telephone}")
+
+d)16 character Alpha-numeric password composed of alphabets of Upper Case, Lower Case, Special Characters, Numbers.
+import re
+
+def validate_password(password):
+    pattern = r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{16}$'
+    return bool(re.match(pattern, password))
+
+# Example usage:
+password = "Abcdef123!@Abcdef"
+is_valid_password = validate_password(password)
+print(f"Is {password} a valid 16-character Alpha-numeric password? {is_valid_password}")
